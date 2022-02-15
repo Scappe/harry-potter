@@ -1,4 +1,4 @@
-@keyframes cool {
+/* @keyframes cool {
     from,to {
         color:black;
     }
@@ -18,4 +18,16 @@
     animation-name: cool;
     animation-duration: 5s;
     animation-iteration-count: infinite;
+} */
+
+
+ul {
+    margin: unset;
+}
+
+li {
+}
+
+.information {
+
 }

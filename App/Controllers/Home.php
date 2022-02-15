@@ -26,32 +26,41 @@ class Home extends \Core\Controller
     public function indexWithIdAction()
     {
         $id = $this->route_params["id"];
-        View::renderTemplate('Home/index_id.html',['id' => $id]);
+        View::renderTemplate('Home/index_id.html', ['id' => $id]);
     }
 
-    public function usersAction() {
+    public function usersAction()
+    {
         $users = User::getAll();
-        View::renderTemplate('Home/users.html',['users' => $users]);
+        View::renderTemplate('Home/users.html', ['users' => $users]);
     }
 
-    public function usersJsonAction() {
+    public function usersJsonAction()
+    {
         $users = User::getAll();
         echo json_encode($users);
     }
 
-    public function usersWithIdAction() {
+    // public function crewsJsonAction() {
+    //     $crews = Crew::getAll():
+    //     echo json_encode($users);
+    // }
+
+    public function usersWithIdAction()
+    {
         $id = $this->route_params["id"];
         $user = User::getUser($id);
-        View::renderTemplate('Home/user.html',['user' => $user]);
+        View::renderTemplate('Home/user.html', ['user' => $user]);
     }
-    public function usersWithIdJsonAction() {
+    public function usersWithIdJsonAction()
+    {
         $id = $this->route_params["id"];
         $users = User::getUser($id);
         echo json_encode($users);
     }
 
-    public function usersJs() {
+    public function usersJs()
+    {
         View::renderTemplate('Home/users_js.html');
     }
-
 }
