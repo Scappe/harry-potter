@@ -1,38 +1,32 @@
 var app = {
-    init: function () {
-        // Use origin and pathname to force to use https and avoid mixed content
-        let origin = window.location.origin,
-            pathname = window.location.pathname;
-        $.getJSON(`${origin}${pathname}/crews.json`)
-            .done(app.writeCrews)
-            .fail(app.onFail);
-    },
+	init: function () {
+		let origin = window.location.origin,
+			pathname = window.location.pathname
 
-    onFail: function (error) {
-        console.log("errore nella lettura del file json");
-        console.log(error);
-    },
+		$.getJSON(`${origin}${pathname}?crews.json`)
+			.done(app.writeCrews)
+			.fail(app.onFail)
+	},
 
-    writeCrews: function (jsonData) {
-        console.log(jsonData);
+	onFail: error => console.log(`errore nella lettura del file json ${error}`),
 
-        for (crew of jsonData) {
-            let pirates_list = $("<ul/>");
-
-            for (pirate of crew.pirates)
-                pirates_list.append(`<li class="information">${pirate.name}</li>`);
-
-            $("#crews").append(
-                `
-                <div>
-                    Ciurma: <span class="information">${crew.name}</span>
-                </div>
-                <div>Membri:</div>
-                `,
-                pirates_list
-            );
-        }
-    }
+	writeCrews: function (crews) {
+		$("#crews").append(
+			crews.map(crew =>
+				`
+				<li class="crew">
+					<div>
+						Ciurma: <span class="crew-name">${crew.name}</span>
+					</div>
+		        	<div>Membri:</div>
+					<ul>
+						${crew.pirates.map(pirate => `<li class="pirate">${pirate.name}</li>`).join('')}
+					</ul>
+				</li>
+				`
+			).join('')
+		)
+	}
 }
 
 

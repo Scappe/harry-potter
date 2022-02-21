@@ -1,33 +1,26 @@
-/* @keyframes cool {
-    from,to {
-        color:black;
-    }
-    25% {
-        color:blue;
-    }
-    50% {
-        color:green;
-    }
-    75% {
-        color:brown;
-    }
+* {
+	font-size: 1.1em;
 }
 
-.cool {
-    font-weight: bold;
-    animation-name: cool;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-} */
-
-
-ul {
-    margin: unset;
+h1 {
+	font-size: 2em;
 }
 
-li {
+#crews {
+	list-style-type: none;
+	padding: unset;
 }
 
-.information {
+li.crew {
+	padding: 20px;
+	border-bottom: 1px solid black;
+}
 
+li.crew:first-child {
+	border-top: 1px solid black;
+}
+
+.crew-name,
+.pirate {
+	color: grey;
 }
