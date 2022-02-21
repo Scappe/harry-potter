@@ -17,4 +17,3 @@ class Home extends \Core\Controller
 		echo json_encode(Crew::getAll());
 	}
 }
-//
