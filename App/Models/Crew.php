@@ -17,7 +17,7 @@ class Crew extends \Core\Model
 		$crews = array();
 
 		if ($crewsQuery->num_rows > 0)
-			while ($crew = $crewsQuery->fetch_assoc()) {
+			while ($crew = $crewsQuery->fetch_assoc()) { //fetch_assoc scorre le righe della select e si ferma quando sono finiti i dati dell array
 				$name = $crew['name'];
 
 				$piratesQuery = $db->query("SELECT pirates.name, pirates.age FROM pirates JOIN crews ON members = pirate_id WHERE crews.name = '$name'");
@@ -28,8 +28,8 @@ class Crew extends \Core\Model
 						array_push(
 							$pirates,
 							[
-								'name' => $pirate['name'],
-								'age' => $pirate['age']
+								'name' => $pirate['name'], //se fosse solo name basta $pirate['name']
+								'age' => $pirate['age'] //il model gli da l'età però poi il js non li usa
 							]
 						);
 

@@ -3,7 +3,7 @@ var app = {
 		let origin = window.location.origin,
 			pathname = window.location.pathname
 
-		$.getJSON(`${origin}${pathname}?crews.json`)
+		$.getJSON(`${origin}${pathname}?myCrews.json`)
 			.done(app.writeCrews)
 			.fail(app.onFail)
 	},
@@ -16,11 +16,11 @@ var app = {
 				`
 				<li class="crew">
 					<div>
-						Ciurma: <span class="crew-name">${crew.name}</span>
+						Ciurma: <span>${crew.name}</span>
 					</div>
 		        	<div>Membri:</div>
 					<ul>
-						${crew.pirates.map(pirate => `<li class="pirate">${pirate.name}</li>`).join('')}
+						${crew.pirates.map(pirate => `<li class="pirate">${pirate.name},  ${pirate.age}</li>`).join('')}
 					</ul>
 				</li>
 				`

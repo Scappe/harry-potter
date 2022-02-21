@@ -10,8 +10,8 @@ set_exception_handler('Core\Error::exceptionHandler');
 
 $router = new Core\Router();
 
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('crews.json', ['controller' => 'Home', 'action' => 'crewsJson']);
+$router->add('', ['controller' => 'Home', 'action' => 'renderIndex']);
+$router->add('myCrews.json', ['controller' => 'Home', 'action' => 'crewsJson']);
 
 $router->add('{controller}/{action}');
 $router->dispatch($_SERVER['QUERY_STRING']);

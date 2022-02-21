@@ -7,7 +7,7 @@ use \App\Models\Crew;
 
 class Home extends \Core\Controller
 {
-	public function indexAction()
+	public function renderIndex() //azione chiamata da index.php
 	{
 		View::renderTemplate('Home/index.html');
 	}
