@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-use \App\Models\Crew;
+use \App\Models\Student;
 
 class Home extends \Core\Controller
 {
@@ -12,8 +12,8 @@ class Home extends \Core\Controller
 		View::renderTemplate('Home/index.html');
 	}
 
-	public function crewsJsonAction()
+	public function studentsJsonAction()
 	{
-		echo json_encode(Crew::getAll());
+		echo json_encode(Student::getAll());
 	}
 }

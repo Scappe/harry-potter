@@ -11,7 +11,7 @@ set_exception_handler('Core\Error::exceptionHandler');
 $router = new Core\Router();
 
 $router->add('', ['controller' => 'Home', 'action' => 'renderIndex']);
-$router->add('myCrews.json', ['controller' => 'Home', 'action' => 'crewsJson']);
+$router->add('students.json', ['controller' => 'Home', 'action' => 'studentsJson']);
 
 $router->add('{controller}/{action}');
 $router->dispatch($_SERVER['QUERY_STRING']);
